@@ -1,0 +1,77 @@
+#include <Logging.h">
+#include "SR04.h"
+
+/*!
+* This example use two SR04 ultrasonic devices and print the distance out
+* on RS232
+*
+* Use my logging library too, for easy output
+*
+* This example use an Chip45 ATMega323p board. If you use an other Arduino
+* please take care to use correct pins !
+*
+* Have fun
+* mrRobot@web.de
+*/
+
+
+#define TRIGGER_PIN_US1 7
+#define TRIGGER_PIN_US2 11
+
+#define ECHO_PIN_US1 A2
+#define ECHO_PIN_US2 A1
+
+Logging logger = Logging(3, 38400L);
+SR04 sr04_1 = SR04(ECHO_PIN_US1, TRIGGER_PIN_US1);
+SR04 sr04_2 = SR04(ECHO_PIN_US2, TRIGGER_PIN_US2);
+
+// Pin PB2
+const int led = 10;
+int idle = 0;
+long cm;
+long microseconds;
+
+
+void setup() {
+    pinMode(led, OUTPUT);
+    logger.Init();
+    logger.Info(CR"******************************************"CR);
+    logger.Info("Ultraschall - TEST SR04"CR);
+    logger.Info("******************************************"CR);
+
+}
+
+
+
+
+void loop() {
+    long left,right,leftAvg,rightAvg;
+
+    inches  =0;
+    left = sr04_1.Distance();
+    leftAvg = sr04_1.Distance();
+    right = sr04_2.Distance();
+    rightAvg = sr04_2.Distance();
+    logger.Info("Left/Right( %lcm /%lcm)",
+                left,right);
+    logger.Info(" AVG:Left / Right(%lcm /%lcm)",
+                leftAvg,rightAvg);
+    delay(100);
+    toggleLED(1, 50);
+}
+
+
+/**
+* Blinken der LED auf dem Board
+* \param count Anzahl der Blinks
+* \param ms Pause zwischen jedem Blink
+* Return:
+*/
+void toggleLED(byte count, int ms) {
+    for (int x = 0; x < count; x++) {
+        digitalWrite(led, LOW);
+        delay(ms);
+        digitalWrite(led, HIGH);
+        delay(ms);
+    }
+}

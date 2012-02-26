@@ -1,0 +1,256 @@
+\hypertarget{class_s_r04}{
+\section{SR04 Class Reference}
+\label{class_s_r04}\index{SR04@{SR04}}
+}
+{\tt \#include $<$SR04.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{class_s_r04_7af7a8b9d80f721c1d2802c1acbf6d10}{SR04} (int echoPin, int triggerPin)
+\item 
+long \hyperlink{class_s_r04_1fbb097bdcde18aa3095ddc96d41a653}{Distance} ()
+\item 
+long \hyperlink{class_s_r04_fd9284a5840d1a09c825f4255dba4b7b}{DistanceAvg} (int wait=DEFAULT\_\-DELAY, int count=DEFAULT\_\-PINGS)
+\item 
+void \hyperlink{class_s_r04_1a76036315b7f13e475988b6ada09ab6}{Ping} ()
+\item 
+long \hyperlink{class_s_r04_1db22ae175b3fec1619bf858e1b8308e}{getDistance} ()
+\end{CompactItemize}
+\subsection*{Private Member Functions}
+\begin{CompactItemize}
+\item 
+long \hyperlink{class_s_r04_50c7ecb90dd637067812f1df57fb0211}{MicrosecondsToCentimeter} (long duration)
+\end{CompactItemize}
+\subsection*{Private Attributes}
+\begin{CompactItemize}
+\item 
+long \hyperlink{class_s_r04_7c1be2e3886d6062108f6ce6914f4713}{\_\-currentDistance}
+\item 
+int \hyperlink{class_s_r04_455266efca39151130844ade8a71c2bd}{\_\-echoPin}
+\item 
+int \hyperlink{class_s_r04_093339f25a9fea6bcac46db6f8c8d4b1}{\_\-triggerPin}
+\item 
+long \hyperlink{class_s_r04_f88aad0e86e807d7d91b989a9da66649}{\_\-duration}
+\item 
+long \hyperlink{class_s_r04_9edb2f2f92286328ec96704dd12b985c}{\_\-distance}
+\item 
+bool \hyperlink{class_s_r04_dee423aa1137931b46b8eab5b0a0c2ad}{\_\-autoMode}
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 16 of file SR04.h.
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_s_r04_7af7a8b9d80f721c1d2802c1acbf6d10}{
+\index{SR04@{SR04}!SR04@{SR04}}
+\index{SR04@{SR04}!SR04@{SR04}}
+\subsubsection[SR04]{\setlength{\rightskip}{0pt plus 5cm}SR04::SR04 (int {\em echoPin}, \/  int {\em triggerPin})}}
+\label{class_s_r04_7af7a8b9d80f721c1d2802c1acbf6d10}
+
+
+Constructor Ultrasonic sensor \hyperlink{class_s_r04}{SR04}, four connections pins VCC, ECHO, TRIGGER, GND \par
+ \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em echoPin}]digital INPUT-Pin for measuring distance \item[{\em triggerPin}]if 10us high a trigger signal is generated from \hyperlink{class_s_r04}{SR04}\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]void \end{Desc}
+
+
+Definition at line 4 of file SR04.cpp.
+
+References \_\-autoMode, \_\-distance, \_\-echoPin, and \_\-triggerPin.
+
+\subsection{Member Function Documentation}
+\hypertarget{class_s_r04_1fbb097bdcde18aa3095ddc96d41a653}{
+\index{SR04@{SR04}!Distance@{Distance}}
+\index{Distance@{Distance}!SR04@{SR04}}
+\subsubsection[Distance]{\setlength{\rightskip}{0pt plus 5cm}long SR04::Distance ()}}
+\label{class_s_r04_1fbb097bdcde18aa3095ddc96d41a653}
+
+
+Do a measurment for this sensor. Return distance as long in centimenter \begin{Desc}
+\item[Returns:]long distance in centimeter \end{Desc}
+
+
+Definition at line 14 of file SR04.cpp.
+
+References \_\-duration, \_\-echoPin, \_\-triggerPin, MicrosecondsToCentimeter(), and PULSE\_\-TIMEOUT.
+
+Referenced by DistanceAvg(), and Ping().
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=166pt]{class_s_r04_1fbb097bdcde18aa3095ddc96d41a653_cgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_s_r04_fd9284a5840d1a09c825f4255dba4b7b}{
+\index{SR04@{SR04}!DistanceAvg@{DistanceAvg}}
+\index{DistanceAvg@{DistanceAvg}!SR04@{SR04}}
+\subsubsection[DistanceAvg]{\setlength{\rightskip}{0pt plus 5cm}long SR04::DistanceAvg (int {\em wait} = {\tt DEFAULT\_\-DELAY}, \/  int {\em count} = {\tt DEFAULT\_\-PINGS})}}
+\label{class_s_r04_fd9284a5840d1a09c825f4255dba4b7b}
+
+
+Do count measurents and calculate the average. To avoid defilement from ow/high peaks, min/max values are substracted from the average
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em wait}]delay between measurements, default = DEFAULT\_\-DELAY/ms \item[{\em count}]number of measurements, default DEFAULT\_\-PINGS \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]long distance in centimeter \end{Desc}
+
+
+Definition at line 29 of file SR04.cpp.
+
+References Distance().
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=235pt]{class_s_r04_fd9284a5840d1a09c825f4255dba4b7b_cgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_s_r04_1a76036315b7f13e475988b6ada09ab6}{
+\index{SR04@{SR04}!Ping@{Ping}}
+\index{Ping@{Ping}!SR04@{SR04}}
+\subsubsection[Ping]{\setlength{\rightskip}{0pt plus 5cm}void SR04::Ping ()}}
+\label{class_s_r04_1a76036315b7f13e475988b6ada09ab6}
+
+
+Do only a ping. Get result with methode \hyperlink{class_s_r04_1db22ae175b3fec1619bf858e1b8308e}{getDistance()}
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em keine}]\end{description}
+\end{Desc}
+
+
+Definition at line 64 of file SR04.cpp.
+
+References \_\-distance, and Distance().
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=217pt]{class_s_r04_1a76036315b7f13e475988b6ada09ab6_cgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_s_r04_1db22ae175b3fec1619bf858e1b8308e}{
+\index{SR04@{SR04}!getDistance@{getDistance}}
+\index{getDistance@{getDistance}!SR04@{SR04}}
+\subsubsection[getDistance]{\setlength{\rightskip}{0pt plus 5cm}long SR04::getDistance ()}}
+\label{class_s_r04_1db22ae175b3fec1619bf858e1b8308e}
+
+
+return latest distance. Methode \hyperlink{class_s_r04_1a76036315b7f13e475988b6ada09ab6}{Ping()} should be called before \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em keine}]\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]Distanz in Zentimeter \end{Desc}
+
+
+Definition at line 68 of file SR04.cpp.
+
+References \_\-distance.\hypertarget{class_s_r04_50c7ecb90dd637067812f1df57fb0211}{
+\index{SR04@{SR04}!MicrosecondsToCentimeter@{MicrosecondsToCentimeter}}
+\index{MicrosecondsToCentimeter@{MicrosecondsToCentimeter}!SR04@{SR04}}
+\subsubsection[MicrosecondsToCentimeter]{\setlength{\rightskip}{0pt plus 5cm}long SR04::MicrosecondsToCentimeter (long {\em duration})\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{class_s_r04_50c7ecb90dd637067812f1df57fb0211}
+
+
+Do the measurement calculation and return result in centimeter \hyperlink{class_s_r04}{SR04} measure echo time to obstacle and return way. \par
+ Sound travels with 340m/sec \par
+ Example: Obstace 100cm away from \hyperlink{class_s_r04}{SR04}. Measure time is 100cm to obstacle and 100cm return = 200cm \par
+ 1sec = 1000ms = 1.000.000uS 1.000.000 / 340 = Distance in microseconds for 100cm 2941uS fuer 100cm = 5882 uS fuer 200cm
+
+duration / 5882 $\ast$ 100 = distance in cm 
+
+Definition at line 72 of file SR04.cpp.
+
+Referenced by Distance().
+
+\subsection{Member Data Documentation}
+\hypertarget{class_s_r04_7c1be2e3886d6062108f6ce6914f4713}{
+\index{SR04@{SR04}!\_\-currentDistance@{\_\-currentDistance}}
+\index{\_\-currentDistance@{\_\-currentDistance}!SR04@{SR04}}
+\subsubsection[\_\-currentDistance]{\setlength{\rightskip}{0pt plus 5cm}long {\bf SR04::\_\-currentDistance}\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{class_s_r04_7c1be2e3886d6062108f6ce6914f4713}
+
+
+
+
+Definition at line 83 of file SR04.h.\hypertarget{class_s_r04_455266efca39151130844ade8a71c2bd}{
+\index{SR04@{SR04}!\_\-echoPin@{\_\-echoPin}}
+\index{\_\-echoPin@{\_\-echoPin}!SR04@{SR04}}
+\subsubsection[\_\-echoPin]{\setlength{\rightskip}{0pt plus 5cm}int {\bf SR04::\_\-echoPin}\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{class_s_r04_455266efca39151130844ade8a71c2bd}
+
+
+
+
+Definition at line 84 of file SR04.h.
+
+Referenced by Distance(), and SR04().\hypertarget{class_s_r04_093339f25a9fea6bcac46db6f8c8d4b1}{
+\index{SR04@{SR04}!\_\-triggerPin@{\_\-triggerPin}}
+\index{\_\-triggerPin@{\_\-triggerPin}!SR04@{SR04}}
+\subsubsection[\_\-triggerPin]{\setlength{\rightskip}{0pt plus 5cm}int {\bf SR04::\_\-triggerPin}\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{class_s_r04_093339f25a9fea6bcac46db6f8c8d4b1}
+
+
+
+
+Definition at line 84 of file SR04.h.
+
+Referenced by Distance(), and SR04().\hypertarget{class_s_r04_f88aad0e86e807d7d91b989a9da66649}{
+\index{SR04@{SR04}!\_\-duration@{\_\-duration}}
+\index{\_\-duration@{\_\-duration}!SR04@{SR04}}
+\subsubsection[\_\-duration]{\setlength{\rightskip}{0pt plus 5cm}long {\bf SR04::\_\-duration}\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{class_s_r04_f88aad0e86e807d7d91b989a9da66649}
+
+
+
+
+Definition at line 85 of file SR04.h.
+
+Referenced by Distance().\hypertarget{class_s_r04_9edb2f2f92286328ec96704dd12b985c}{
+\index{SR04@{SR04}!\_\-distance@{\_\-distance}}
+\index{\_\-distance@{\_\-distance}!SR04@{SR04}}
+\subsubsection[\_\-distance]{\setlength{\rightskip}{0pt plus 5cm}long {\bf SR04::\_\-distance}\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{class_s_r04_9edb2f2f92286328ec96704dd12b985c}
+
+
+
+
+Definition at line 85 of file SR04.h.
+
+Referenced by getDistance(), Ping(), and SR04().\hypertarget{class_s_r04_dee423aa1137931b46b8eab5b0a0c2ad}{
+\index{SR04@{SR04}!\_\-autoMode@{\_\-autoMode}}
+\index{\_\-autoMode@{\_\-autoMode}!SR04@{SR04}}
+\subsubsection[\_\-autoMode]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf SR04::\_\-autoMode}\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{class_s_r04_dee423aa1137931b46b8eab5b0a0c2ad}
+
+
+
+
+Definition at line 86 of file SR04.h.
+
+Referenced by SR04().
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+K:/Projekte/robotic/arduino/arduino\_\-1-0Patch/libraries/SR04/\hyperlink{_s_r04_8h}{SR04.h}\item 
+K:/Projekte/robotic/arduino/arduino\_\-1-0Patch/libraries/SR04/\hyperlink{_s_r04_8cpp}{SR04.cpp}\end{CompactItemize}

@@ -1,0 +1,36 @@
+%define=box block bgcolor=#dddddd border="2px dotted white"%
+%define=wbox block bgcolor=#eeeeee color=#000000 border="1px dotted black" padding="2px"%
+
+
+%wbox%[@Ultrasonic SR04 library for Arudino
+by LunaX - 2010/2011
+@]%%
+
+!CURRENT VERSION
+
+Release 1.0 24-FEB-2012 beta version.
+
+!HISTORY
+
+Release 1.0 24-FEB-2012 Initial Release\\
+
+
+!DESCRIPTION
+Easy to use ultrasonic library based on SR04 sensor.
+
+!HOW TO IMPORT/INSTALL
+Download here zip file here [[https://github.com/mrRobot62/Arduino-SR04-library]]
+
+Put the Logging folder in "libraries\".
+
+Open example project which is included in the zip file. Try it, like it :-)
+This example use my other library "Logging". Please download it too.
+
+!Methods for measuring
+||border=0
+||!Methode ||!Comment ||
+||Distance ||return distance in centimeter ||
+||DistanceAvg||do several measurments, return average ||
+||Ping ||send only a ping signal ||
+||getDistance ||get latest distance in centimeter ||
+%%
